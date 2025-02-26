@@ -17,39 +17,47 @@
         <h1 class="titulo">Calculadora em JavaScript</h1>
         <p class="nome">Matheus Oliveira da Silva</p>
     </div>
-    <div class="calculadora">
-        <div class="visor">
+    <div>
+        <div class="calculadora escuro" id="calculadora">
+            <div class="trocarTema ativo" id="trocarTema">
+                <i class="iconeTroca"></i>
+            </div>
+            <div class="visorTela">
+                <div id="visor">000</div>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td colspan="2"><button class="c" id="clear">C</button></td>
+                        <td><button class="operador" id="/">&divide;</button></td>
+                        <td><button class="operador" id="*">&times;</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="numero" id="7">7</button></td>
+                        <td><button class="numero" id="8">8</button></td>
+                        <td><button class="numero" id="9">9</button></td>
+                        <td><button class="operador" id="-">&minus;</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="numero" id="4">4</button></td>
+                        <td><button class="numero" id="5">5</button></td>
+                        <td><button class="numero" id="6">6</button></td>
+                        <td rowspan="2"><button class="soma" id="soma">&plus;</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="numero" id="1">1</button></td>
+                        <td><button class="numero" id="2">2</button></td>
+                        <td><button class="numero" id="3">3</button></td>
+                    </tr>
+                    <tr>
+                        <td><button class="numero" id="0">0</button></td>
+                        <td><button class="operador" id="ponto">.</button></td>
+                        <td><button class="operador" id="apagar">&larr;</button></td>
+                        <td><button class="igual" id="igual">&equals;</button></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <table>
-            <tr class="linha">
-                <td colspan="2"><button class="c" id="clear">C</button></td>
-                <td><button class="operador" id="/">&divide;</button></td>
-                <td><button class="operador" id="*">&times;</button></td>
-            </tr>
-            <tr class="linha">
-                <td><button class="numero" id="7">7</button></td>
-                <td><button class="numero" id="8">8</button></td>
-                <td><button class="numero" id="9">9</button></td>
-                <td><button class="operador" id="-">&minus;</button></td>
-            </tr>
-            <tr class="linha">
-                <td><button class="numero" id="4">4</button></td>
-                <td><button class="numero" id="5">5</button></td>
-                <td><button class="numero" id="6">6</button></td>
-                <td rowspan="2"><button class="soma" id="+">&plus;</button></td>
-            </tr>
-            <tr class="linha">
-                <td><button class="numero" id="1">1</button></td>
-                <td><button class="numero" id="2">2</button></td>
-                <td><button class="numero" id="3">3</button></td>
-            </tr>
-            <tr class="linha">
-                <td><button class="numero" id="0">0</button></td>
-                <td><button class="operador" id="ponto">.</button></td>
-                <td><button class="operador" id="apagar">&larr;</button></td>
-                <td><button class="igual" id="igual">&equals;</button></td>
-            </tr>
-        </table>
     </div>
 </body>
 <script src="./scripts/calculadora.js"></script>

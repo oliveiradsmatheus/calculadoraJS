@@ -1,3 +1,17 @@
+:root {
+    --preto: #282A36;
+    --cinza: #44475A;
+    --branco: #F8F8F2;
+    --azul: #6272A4;
+    --ciano: #8BE9FD;
+    --verde: #50FA7B;
+    --laranja: #FFB86C;
+    --rosa: #FF79C6;
+    --roxo: #BD93F9;
+    --vermelho: #FF5555;
+    --amarelo: #F1FA8C;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +21,8 @@
 }
 
 body {
-    font-family: JetBrains Mono, monospace;
-    background-image: linear-gradient(340deg, #282A36, #44475A,#FFB86C);
+    font-family: 'JetBrains Mono', monospace;
+    background-image: linear-gradient(340deg, #282A36, #44475A, #FFB86C);
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -21,11 +35,39 @@ body {
     width: auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 30px #000;
-    background-color: rgba(68, 71, 90, 0.45);
+    box-shadow: 0 0 30px var(--preto);
 }
 
-.visor {
+.trocarTema {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: var(--branco);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.trocarTema.ativo {
+    color: var(--preto);
+}
+
+.trocarTema.ativo::before {
+    background-color: var(--branco);
+}
+
+.trocarTema::before {
+    content: '';
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #282A36;
+    z-index: -1;
+}
+
+#visor {
     margin: 0 10px;
     height: 100px;
     width: auto;
@@ -40,8 +82,6 @@ body {
     box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
     overflow: auto;
     padding: 20px 30px;
-    background-color: #282A36;
-    color: #F8F8F2;
 }
 
 #visor::-webkit-scrollbar {
@@ -61,67 +101,92 @@ button {
 }
 
 button:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
-.igual {
-    background-color: #50FA7B	;
-    color: #282A36;
-}
-
-.soma {
+button#soma {
     height: 160px;
-    background-color: #BD93F9;
-    color: #F8F8F2;
 }
 
-.c {
+button#clear {
     width: 160px;
-    background-color: #FF5555;
-    color: #F8F8F2;
 }
 
-.numero {
-    background-color: #F8F8F2;
-    color: #282A36;
+/* Tema Claro */
+
+.calculadora {
+    background-color: rgba(248, 248, 242, 0.80);
 }
 
-.operador {
-    background-color: #BD93F9;
-    color: #F8F8F2;
+.calculadora #icone {
+    background-image: image("./asset");
 }
 
-/*.calculadora {
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.01);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
-    color: #232323;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.34);
-    flex-basis: 400px;
-    height: 540px;
-    padding: 20px 35px;
+.calculadora #visor {
+    background-color: rgba(248, 248, 242, 0.65);
+    color: var(--preto);
 }
 
-.visor {
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.01);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
-    color: #232323;
-    font-size: 35px;
-    overflow: auto;
-    padding: 20px;
-    text-align: right;
-    width: 356px;
-}*/
+.calculadora button#clear {
+    background-color: var(--vermelho);
+    color: var(--branco);
+}
+
+.calculadora button#igual {
+    background-color: var(--verde);
+    color: var(--preto);
+}
+
+.calculadora button#soma {
+    background-color: var(--rosa);
+    color: var(--preto);
+}
+
+.calculadora button.numero {
+    background-color: var(--branco);
+    color: var(--preto);
+}
+
+.calculadora button.operador {
+    background-color: var(--amarelo);
+    color: var(--preto);
+}
+
+/* Tema Escuro */
+
+.calculadora.escuro {
+    background-color: rgba(40, 42, 54, 0.65);
+}
+
+.calculadora.escuro #visor {
+    background-color: rgba(40, 42, 54, 0.65);
+    color: var(--laranja);
+}
+
+.calculadora.escuro button#clear {
+    background-color: var(--vermelho);
+    color: var(--branco);
+}
+
+.calculadora.escuro button#igual {
+    background-color: var(--verde);
+    color: var(--preto);
+}
+
+.calculadora.escuro button#soma {
+    background-color: var(--rosa);
+    color: var(--branco);
+}
+
+.calculadora.escuro button.numero {
+    background-color: var(--preto);
+    color: var(--laranja);
+}
+
+.calculadora.escuro button.operador {
+    background-color: var(--roxo);
+    color: var(--branco);
+}
 
 .titulo {
     align-items: center;

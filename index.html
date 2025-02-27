@@ -10,56 +10,59 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
+    <script src="./scripts/calculadora.js"></script>
+    <script src="./scripts/tema.js"></script>
 </head>
 
-<body>
+<body data-theme="escuro">
     <div>
         <h1 class="titulo">Calculadora em JavaScript</h1>
         <p class="nome">Matheus Oliveira da Silva</p>
+        <div>
+            <button id="trocarTema" onclick="trocarTema()">
+                <i class="indicador"></i>
+            </button>
+        </div>
     </div>
     <div>
-        <div class="calculadora escuro" id="calculadora">
-            <div class="trocarTema ativo" id="trocarTema">
-                <i></i>
-            </div>
+        <div id="calculadora">
             <div class="visorTela">
                 <div id="visor">0</div>
             </div>
             <div>
-                <table>
+                <table id="botoes">
                     <tr>
-                        <td colspan="2"><button class="c" id="clear">C</button></td>
-                        <td><button class="operador" id="/">&divide;</button></td>
-                        <td><button class="operador" id="*">&times;</button></td>
+                        <td colspan="2"><button id="clear" onclick="limpar()">C</button></td>
+                        <td><button class="operador" id="div" onclick="inserir('÷')">&divide;</button></td>
+                        <td><button class="operador" id="mult" onclick="inserir('×')">&times;</button></td>
                     </tr>
                     <tr>
-                        <td><button class="numero" id="7">7</button></td>
-                        <td><button class="numero" id="8">8</button></td>
-                        <td><button class="numero" id="9">9</button></td>
-                        <td><button class="operador" id="-">&minus;</button></td>
+                        <td><button class="numero" onclick="inserir(7)">7</button></td>
+                        <td><button class="numero" onclick="inserir(8)">8</button></td>
+                        <td><button class="numero" onclick="inserir(9)">9</button></td>
+                        <td><button class="operador" id="menos" onclick="inserir('-')">&minus;</button></td>
                     </tr>
                     <tr>
-                        <td><button class="numero" id="4">4</button></td>
-                        <td><button class="numero" id="5">5</button></td>
-                        <td><button class="numero" id="6">6</button></td>
-                        <td rowspan="2"><button class="soma" id="soma">&plus;</button></td>
+                        <td><button class="numero" onclick="inserir(4)">4</button></td>
+                        <td><button class="numero" onclick="inserir(5)">5</button></td>
+                        <td><button class="numero" onclick="inserir(6)">6</button></td>
+                        <td rowspan="2"><button id="soma" onclick="inserir('+')">&plus;</button></td>
                     </tr>
                     <tr>
-                        <td><button class="numero" id="1">1</button></td>
-                        <td><button class="numero" id="2">2</button></td>
-                        <td><button class="numero" id="3">3</button></td>
+                        <td><button class="numero" onclick="inserir(1)">1</button></td>
+                        <td><button class="numero" onclick="inserir(2)">2</button></td>
+                        <td><button class="numero" onclick="inserir(3)">3</button></td>
                     </tr>
                     <tr>
-                        <td><button class="numero" id="0">0</button></td>
-                        <td><button class="operador" id="ponto">.</button></td>
-                        <td><button class="operador" id="apagar">&larr;</button></td>
-                        <td><button class="igual" id="igual">&equals;</button></td>
+                        <td><button class="numero" onclick="inserir(0)">0</button></td>
+                        <td><button class="operador" onclick="inserir('.')">.</button></td>
+                        <td><button class="operador" onclick="apagar()">&larr;</button></td>
+                        <td><button id="igual" onclick="calcular()">&equals;</button></td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
 </body>
-<script src="./scripts/calculadora.js"></script>
 
 </html>

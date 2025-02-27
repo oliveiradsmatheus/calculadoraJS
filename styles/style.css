@@ -1,77 +1,52 @@
 :root {
-    --preto: #282A36;
-    --cinza: #44475A;
-    --branco: #F8F8F2;
-    --azul: #6272A4;
-    --ciano: #8BE9FD;
-    --verde: #50FA7B;
-    --laranja: #FFB86C;
-    --rosa: #FF79C6;
-    --roxo: #BD93F9;
-    --vermelho: #FF5555;
-    --amarelo: #F1FA8C;
+    --fundo: #353740;
+    --fonte: #FFB86C;
+    --sombra: #FFB86C;
+    --botao: #282A36;
+    --visor: rgba(40, 42, 54, 0.65);
+    --calculadora: rgba(67, 69, 82, 0.65);
+    --igual: #50FA7B;
+    --soma: #FF79C6;
+    --operador: #BD93F9;
+    --clear: #FF5555;
+    --digito: #F8F8F2;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     outline: 0;
     transition: all 0.5s ease;
 }
 
 body {
+    background-color: var(--fundo);
+    color: var(--fonte);
     font-family: 'JetBrains Mono', monospace;
-    background-image: linear-gradient(340deg, #282A36, #44475A, #FFB86C);
     height: 100vh;
     width: 100vw;
     display: grid;
     place-items: center;
 }
 
-.calculadora {
+#calculadora {
     position: relative;
     height: auto;
     width: auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 30px var(--preto);
-}
-
-.trocarTema {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    color: var(--branco);
-    cursor: pointer;
-    z-index: 1;
-}
-
-.trocarTema.ativo {
-    color: var(--preto);
-}
-
-.trocarTema.ativo::before {
-    background-color: var(--branco);
-}
-
-.trocarTema::before {
-    content: '';
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background-color: #282A36;
-    z-index: -1;
+    box-shadow: 0 0 30px var(--sombra);
+    background-color: var(--calculadora);
 }
 
 #visor {
+    background-color: var(--visor);
+    color: var(--fonte);
     margin: 0 10px;
     height: 100px;
     width: auto;
-    max-width: 350px;
+    max-width: 326px;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
@@ -95,9 +70,54 @@ button {
     border: 0;
     border-radius: 18px;
     margin: 5px;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     transition: all 200ms ease;
+}
+
+#trocarTema {
+    position: absolute;
+    top: 2%;
+    right: 20px;
+    display: block;
+    width: 128px;
+    height: 64px;
+    background: var(--fundo);
+    transition: 0.5s;
+    border-radius: 160px;
+    box-shadow: 0 0 12px black;
+}
+
+#trocarTema .indicador {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(to bottom, #4e505a, #282A36);
+    border-radius: 50%;
+    transform: scale(0.9);
+    cursor: pointer;
+    box-shadow: 0 0 12px var(--sombra);
+    transition: 0.5s;
+    background-image: url(../assets/claro.svg);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: center;
+}
+
+#trocarTema.ativo .indicador {
+    left: 64px;
+    background: #F8F8F2;
+    box-shadow: 0 0 12 rgba(0, 0, 0, 0.5);
+    background-image: url(../assets/escuro.svg);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: center;
+}
+
+#trocarTema.ativo {
+    background-color: var(--fundo);
 }
 
 button:hover {
@@ -112,96 +132,47 @@ button#clear {
     width: 160px;
 }
 
-/* Tema Claro */
-
-.calculadora {
-    background-color: rgba(248, 248, 242, 0.80);
-}
-
-.calculadora #icone {
-    background-image: image("./asset");
-}
-
-.calculadora #visor {
-    background-color: rgba(248, 248, 242, 0.65);
-    color: var(--preto);
-}
-
-.calculadora button#clear {
-    background-color: var(--vermelho);
-    color: var(--branco);
-}
-
-.calculadora button#igual {
-    background-color: var(--verde);
-    color: var(--preto);
-}
-
-.calculadora button#soma {
-    background-color: var(--rosa);
-    color: var(--preto);
-}
-
-.calculadora button.numero {
-    background-color: var(--branco);
-    color: var(--preto);
-}
-
-.calculadora button.operador {
-    background-color: var(--amarelo);
-    color: var(--preto);
-}
-
-/* Tema Escuro */
-
-.calculadora.escuro {
-    background-color: rgba(40, 42, 54, 0.65);
-}
-
-.calculadora.escuro #visor {
-    background-color: rgba(40, 42, 54, 0.65);
-    color: var(--laranja);
-}
-
-.calculadora.escuro button#clear {
-    background-color: var(--vermelho);
-    color: var(--branco);
-}
-
-.calculadora.escuro button#igual {
-    background-color: var(--verde);
-    color: var(--preto);
-}
-
-.calculadora.escuro button#soma {
-    background-color: var(--rosa);
-    color: var(--branco);
-}
-
-.calculadora.escuro button.numero {
-    background-color: var(--preto);
-    color: var(--laranja);
-}
-
-.calculadora.escuro button.operador {
-    background-color: var(--roxo);
-    color: var(--branco);
-}
-
 .titulo {
     align-items: center;
-    color: #F8F8F2;
     font-size: 2.5em;
     text-align: center;
     font-weight: 500;
     margin: 15px;
+    transition: 0.1s ease;
+    color: var(--fonte);
 }
 
 .nome {
     align-items: center;
-    color: #F8F8F2;
     font-size: 1.5em;
     text-align: center;
     font-weight: 500;
     margin: 15px;
+    transition: 0.2s ease;
+    color: var(--fonte);
+}
+
+button#clear {
+    background-color: var(--clear);
+    color: #F8F8F2;
+}
+
+button#igual {
+    background-color: var(--igual);
+    color: #282A36;
+}
+
+button#soma {
+    background-color: var(--soma);
+    color: #282A36;
+}
+
+button.numero {
+    background-color: var(--botao);
+    color: var(--fonte);
+}
+
+button.operador {
+    background-color: var(--operador);
+    color: var(--digito);
 }

@@ -4,7 +4,6 @@ function trocarTema() {
     var troca = document.getElementById('trocarTema');
 
     troca.classList.toggle('ativo');
-
     if (body.dataset.theme === 'escuro') {
         root.style.setProperty('--fundo', '#d7d7d7');
         root.style.setProperty('--fonte', '#282A36');

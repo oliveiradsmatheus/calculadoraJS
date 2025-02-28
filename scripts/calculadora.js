@@ -2,46 +2,45 @@ let calculado = false;
 const op = "";
 
 function inserir(num) {
-    var numero = document.getElementById('visor').innerHTML;
+    var equacao = document.getElementById('visor').innerHTML;
 
-    if (num >= '0' && num <= '9') {
+    if (num >= '0' && num <= '9')
         if (calculado) {
-            document.getElementById('visor').innerHTML = num;
+            equacao = num;
             calculado = false;
         }
         else
-            if (numero === '0')
-                document.getElementById('visor').innerHTML = num;
+            if (equacao === '0')
+                equacao = num;
             else
-                document.getElementById('visor').innerHTML = numero + num;
-    } else {
+                equacao = equacao + num;
+    else
         if (calculado) {
-            document.getElementById('visor').innerHTML = numero + num;
+            equacao = equacao + num;
             calculado = false;
-        } else {
-            if (numero[numero.length - 1] >= 0 && numero[numero.length - 1] <= 9)
-                document.getElementById('visor').innerHTML = numero + num;
+        } else
+            if (equacao[equacao.length - 1] >= 0 && equacao[equacao.length - 1] <= 9)
+                equacao = equacao + num;
             else {
-                numero = numero.slice(0, numero.length - 1);
-                document.getElementById('visor').innerHTML = numero + num;
+                equacao = equacao.slice(0, equacao.length - 1);
+                equacao = equacao + num;
             }
-        }
-    }
+    document.getElementById('visor').innerHTML = equacao;
 }
 
 function apagar() {
-    numero = document.getElementById('visor').innerHTML;
+    equacao = document.getElementById('visor').innerHTML;
     if (calculado)
-        numero = '0';
+        equacao = '0';
     else {
-        if (numero[numero.length - 2] === '.')
-            numero = numero.slice(0, numero.length - 2);
+        if (equacao[equacao.length - 2] === '.')
+            equacao = equacao.slice(0, equacao.length - 2);
         else
-            numero = numero.slice(0, numero.length - 1);
-        if (numero.length === 0)
-            numero = '0';
+            equacao = equacao.slice(0, equacao.length - 1);
+        if (equacao.length === 0)
+            equacao = '0';
     }
-    document.getElementById('visor').innerHTML = numero;
+    document.getElementById('visor').innerHTML = equacao;
 }
 
 function limpar() {
@@ -56,7 +55,7 @@ function calcular() {
         resultado = eval(resultado);
         if (resultado % 1 !== 0)
             resultado = resultado.toFixed(5);
-        document.getElementById('visor').innerHTML = eval(resultado);
+        document.getElementById('visor').innerHTML = resultado;
         calculado = true;
     }
     else

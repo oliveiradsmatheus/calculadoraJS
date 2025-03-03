@@ -15,6 +15,6 @@
 <div>
   <h3>Apresentação</h3>
   <ul>
-      <img alt="Tema Escuro" src=https://github.com/oliveiradsmatheus/calculadoraJS/blob/main/imagens/calculadora.gif?raw=true>
+      <img alt="calculadora" src=https://github.com/oliveiradsmatheus/calculadoraJS/blob/main/imagens/calculadora.gif?raw=true>
   </ul>
 </div>

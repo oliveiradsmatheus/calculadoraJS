@@ -7,7 +7,7 @@
 <div>
   <h3>Desafios</h3>
   <ul>
-    <li><p>Desenvolvimento de uma calculadora interativa, manipulando a árvore DOM e o controle de eventos em JavaScript.</p></li>
+    <li><p>Desenvolvimento de uma calculadora interativa para a realização de equações simples, manipulando a árvore DOM e o controle de eventos em JavaScript.</p></li>
     <li><p>Interface amigável construída com CSS.</p></li>
     <li><p>Botão para seleção de tema Escuro/Claro.</p></li>
   </ul>

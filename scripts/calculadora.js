@@ -56,17 +56,60 @@ function limpar() {
     document.getElementById('visor').innerHTML = "0";
 }
 
+function operacao(a, b, op) {
+    return op(a, b);
+}
+
+function soma(a, b) {
+    return parseFloat(a) + parseFloat(b);
+}
+
+function subtracao(a, b) {
+    return parseFloat(a) - parseFloat(b);
+}
+
+function divisao(a, b) {
+    return parseFloat(a) / parseFloat(b);
+}
+
+function multiplicacao(a, b) {
+    return parseFloat(a) * parseFloat(b);
+}
+
 function calcular() {
     var resultado = document.getElementById('visor').innerHTML;
+    var i, a, b, op;
+    let func;
+
     resultado = resultado.replace("÷", "/");
     resultado = resultado.replace('×', '*');
-    if (resultado) {
-        resultado = eval(resultado);
-        if (resultado % 1 !== 0)
-            resultado = resultado.toFixed(5);
-        document.getElementById('visor').innerHTML = resultado;
-        calculado = true;
+
+    i = 0;
+    if (resultado[0] === "-")
+        i = 1;
+    while (i < resultado.length && resultado[i] >= 0 && resultado[i] <= 9)
+        i++;
+
+    op = resultado[i];
+    a = resultado.substring(0, i);
+    b = resultado.substring(i + 1, resultado.lenght);
+
+    switch (op) {
+        case '+':
+            func = soma;
+            break;
+        case '-':
+            func = subtracao;
+            break;
+        case '*':
+            func = multiplicacao;
+            break;
+        case '/':
+            func = divisao;
     }
-    else
-        document.getElementById('visor').innerHTML = "Erro";
+    resultado = operacao(a, b, func);
+    if (resultado % 1 !== 0)
+        resultado = resultado.toFixed(5);
+    document.getElementById('visor').innerHTML = resultado;
+    calculado = true;
 }

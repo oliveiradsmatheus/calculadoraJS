@@ -1,5 +1,4 @@
 let calculado = false;
-const op = "";
 
 function inserir(num) {
     var equacao = document.getElementById('visor').innerHTML;
@@ -16,15 +15,25 @@ function inserir(num) {
                 equacao = equacao + num;
     else
         if (calculado) {
-            equacao = equacao + num;
-            calculado = false;
-        } else
-            if (equacao[equacao.length - 1] >= 0 && equacao[equacao.length - 1] <= 9)
-                equacao = equacao + num;
-            else {
-                equacao = equacao.slice(0, equacao.length - 1);
-                equacao = equacao + num;
+            if (equacao === '0' && num === '-') {
+                equacao = num;
+                calculado = false;
             }
+            else {
+                equacao = equacao + num;
+                calculado = false;
+            }
+        } else
+            if (equacao === '0' && num === '-') {
+                equacao = num;
+                calculado = false;
+            } else
+                if (equacao[equacao.length - 1] >= 0 && equacao[equacao.length - 1] <= 9)
+                    equacao = equacao + num;
+                else {
+                    equacao = equacao.slice(0, equacao.length - 1);
+                    equacao = equacao + num;
+                }
     document.getElementById('visor').innerHTML = equacao;
 }
 

@@ -87,7 +87,7 @@ function calcular() {
     i = 0;
     if (resultado[0] === "-")
         i = 1;
-    while (i < resultado.length && resultado[i] >= 0 && resultado[i] <= 9)
+    while (i < resultado.length && ((resultado[i] >= 0 && resultado[i] <= 9) || resultado[i] === '.'))
         i++;
 
     op = resultado[i];
